@@ -12,6 +12,22 @@ struct kitchen
     float co_2;
 };
 
+int len_file(ifstream file){
+    int len=0;
+
+    if (file){
+        string line;
+
+        while (getline(file, line)){
+            len++;
+        }
+    }else{
+        cout<<"couldn't read the file :-(\n";
+    }
+
+    return len;
+}
+
 int get_data(kitchen Fstorage[]){
     // TODO: inizizalizzare la tabella con tutti i dati forniti dal file excel
     int n=0;
@@ -41,7 +57,12 @@ int get_data(kitchen Fstorage[]){
 
 int main(){
     kitchen food_storage[max];
-    int N = get_data(food_storage);
+    // int N = get_data(food_storage);
+
+    ifstream data("data.csv");
+    string line;
+    int len=0;
+    
 
     system("pause");
     return 0;
