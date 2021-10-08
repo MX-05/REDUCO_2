@@ -24,7 +24,7 @@ char alphabet[] = {
     'x'
 };
 
-// determina la lunghezza del file
+// determina la lunghezza delle righe del file
 int len_file(string path){
     ifstream file(path);
     int len=0;
@@ -134,13 +134,55 @@ void visua_tab(kitchen table[], int n){
     return;
 }
 
+void visua_tags(kitchen v[], int n){
+    cout<<"CATEGORIE: \n"<<string(40, '-')<<endl;
+
+    for (int i=0; i<n; i++){
+        cout<<' '<<i+1<<") "<<v[i].tag<<endl;
+    }
+    cout<<' '<<n+1<<") All\n"<<endl;
+
+    return;
+}
+
+void visua_foods(string v[], int n){
+    // TODO: inserire la visualizzazione verticale se < 10
+    for (int i=0; i<n; i++){
+        cout<<' '<<i+1<<". "<<v[i]<<";\n";
+    }cout<<endl;
+
+    return;
+}
+
+int chiedi(string msg, int n, string error){
+    int index = -1;
+
+    do{
+        cout<<msg; cin>>index;
+        index--;
+
+        if (index>=n or index <0)
+            cout<<error<<endl;
+    }while (index >=n or index <0);    
+
+    return index;
+}
+
 int main(){
     kitchen food_storage[max];
     init(food_storage, max);
 
     int N = get_data(food_storage);
+    visua_tags(food_storage, N);
 
-    visua_tab(food_storage, N);
+    int choice = -1;
+    choice = chiedi("inserire la categoria: ", N+1, "Per favore inserire un numero degli elementi sopra elencati");
+
+    if (choice == N)
+        visua_tab(food_storage, N);
+    else{
+        visua_foods(food_storage[choice].food, food_storage[choice].n);
+    }
 
     system("pause");
     return 0;
