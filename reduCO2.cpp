@@ -134,6 +134,40 @@ void visua_tab(kitchen table[], int n){
     return;
 }
 
+// FIXME: run and fix the bug
+void new_visua_tab(kitchen tab[], int n){
+    
+    int n_max =0;
+
+    // scrivo tutte le categorie
+    for (int i=0; i<n; i++){
+        cout<<" | "<<tab[i].tag;
+
+        if (n_max <tab[i].n)
+            n_max = tab[i].n;
+
+    }cout<<" | \n";
+
+    // scrivo i cibi
+    for (int j=0; j<n_max; j++){
+        for (int i=0; i<n; i++){
+
+            if (j<tab[i].n){
+                cout<<" | "<<tab[i].food[j];
+
+                // se il nome del cibo è più piccolo del nome della categoria, allora aggiunge degli spazi per la formattazione
+                if (tab[i].food[j].length() < tab[i].tag.length())
+                    cout<<string(tab[i].tag.length() -tab[i].food[j].length(), ' ');
+            }
+            else
+                cout<<" | "<<string(tab[i].tag.length(), ' ');
+
+        }cout<<" | \n";
+    }
+    
+    return;
+}
+
 void visua_tags(kitchen v[], int n){
     cout<<"CATEGORIE: \n"<<string(40, '-')<<endl;
 
