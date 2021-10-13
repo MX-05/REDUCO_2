@@ -24,6 +24,22 @@ char alphabet[] = {
     'x'
 };
 
+char title[] = 
+"\t                                        _..._       .-'''-.                   \n"
+"\t            _______                  .-'_..._''.   '   _    \\      .-''-.     \n"
+"\t        .--.\\  ___ `'.             .' .'      '.\\/   /` '.   \\   .' .-.  )    \n"
+"\t        |__| ' |--.\\  \\           / .'          .   |     \\  '  / .'  / /     \n"
+"\t.-,.--. .--. | |    \\  '         . '            |   '      |  '(_/   / /      \n"
+"\t|  .-. ||  | | |     |  '        | |            \\    \\     / /      / /       \n"
+"\t| |  | ||  | | |     |  | _    _ | |             `.   ` ..' /      / /        \n"
+"\t| |  | ||  | | |     ' .'| '  / |. '                '-...-'`      . '         \n"
+"\t| |  '- |  | | |___.' /'.' | .' | \\ '.          .                / /    _.-') \n"
+"\t| |     |__|/_______.'/ /  | /  |  '. `._____.-'/              .' '  _.'.-''  \n"
+"\t| |         \\_______|/ |   `'.  |    `-.______ /              /  /.-'_.'      \n"
+"\t|_|                    '   .'|  '/            `              /    _.'         \n"
+"\t                         `-'  `--'                           ( _.-'            \n\n"; // 121
+
+
 // determina la lunghezza delle righe del file
 int len_file(string path){
     ifstream file(path);
@@ -205,6 +221,8 @@ int chiedi(string msg, int n, string error){
 int main(){
     kitchen food_storage[max];
     init(food_storage, max);
+
+    cout<<title;
 
     int N = get_data(food_storage);
     visua_tags(food_storage, N);
