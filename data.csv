@@ -1,5 +1,4 @@
-﻿CIBO;CATEGORIA;QUANTA CO2 (kgCO2/kg di sostanza)
-Cioccolata;Dolci, Cioccolata e altri confezionamenti;3.09
+﻿Cioccolata;Dolci, Cioccolata e altri confezionamenti;3.09
 Cacao in polvere;Dolci, Cioccolata e altri confezionamenti;0.66
 Pasta sfoglia (con burro);Dolci, Cioccolata e altri confezionamenti;5.53
 Pasta sfoglia (vegana);Dolci, Cioccolata e altri confezionamenti;2.45
@@ -46,3 +45,25 @@ butter;oli;9.82
 fats and oils: other;oli;3.67
 spreadeble butter;oli;7.55
 vegetable ils;oli;3.67
+butter;Dairy, Eggs & Dairy Alternatives;9.92
+cheese (other);Dairy, Eggs & Dairy Alternatives;12.41
+processed cheese ;Dairy, Eggs & Dairy Alternatives;12.41
+cheese (ripened);Dairy, Eggs & Dairy Alternatives;12.41
+cheese (unpastorised);Dairy, Eggs & Dairy Alternatives;12.41
+cottage cheese;Dairy, Eggs & Dairy Alternatives;12.41
+cheese whey protein e.g ricotta;Dairy, Eggs & Dairy Alternatives;12.41
+cream (dairy);Dairy, Eggs & Dairy Alternatives;4.84
+dairy:other;Dairy, Eggs & Dairy Alternatives;1.26
+egg;Dairy, Eggs & Dairy Alternatives;4.9
+egg: free range;Dairy, Eggs & Dairy Alternatives;5.43
+ice cream: dairy;Dairy, Eggs & Dairy Alternatives;1.36
+margarine dairy;Dairy, Eggs & Dairy Alternatives;1.31
+milk: UHT;Dairy, Eggs & Dairy Alternatives;1.26
+milk: condensed;Dairy, Eggs & Dairy Alternatives;1.17
+milk: fermented;Dairy, Eggs & Dairy Alternatives;3.39
+milk: fresh cattle;Dairy, Eggs & Dairy Alternatives;1.26
+milk: fresh sheep and goat;Dairy, Eggs & Dairy Alternatives;1.28
+milk: nut milk;Dairy, Eggs & Dairy Alternatives;0.53
+milk: powdered;Dairy, Eggs & Dairy Alternatives;10.83
+milk: soya;Dairy, Eggs & Dairy Alternatives;0.48
+yogurt and Fromage Frais(dairy);Dairy, Eggs & Dairy Alternatives;2.98
