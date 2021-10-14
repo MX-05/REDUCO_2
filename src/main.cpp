@@ -4,8 +4,9 @@
 #include "const.h"
 #include "files.cpp"
 
-struct carrello
+struct ShoppingCart
 {
+    string date;
     float co2;
     int punt;
 };
@@ -16,10 +17,12 @@ int ask(string msg, int n, string error);
 
 int ask_char(string msg, int n, string error);
 
-void insert(/*carrello list[], int n,*/ kitchen foodStorage[]);
+void insert(int &tag, int &food, kitchen foodStorage[]);
 
 int main(){
     kitchen food_storage[max];
+    ShoppingCart list[max];
+    int food, tag; 
 
     cout<<title;
 
@@ -42,8 +45,7 @@ int main(){
         switch (A[0])
         {
         case 'i':
-            insert(food_storage);
-
+            selectFood(tag, food, food_storage);
             break;
 
         case 'q':
@@ -135,38 +137,40 @@ int ask_char(string msg, int n, string error){
     return index;
 }
 
-void insert(/*carrello list[], int n,*/ kitchen foodStorage[]){
+void selectFood(int &tag, int &food, kitchen foodStorage[]){
 
-    /******* GET DATA FROM CSV FILE ********/
+    /******* GET DATA FROM .CSV FILE *******/
     init_kitchen(foodStorage, max);
     int N = get_data(foodStorage, "../data.csv");
 
     /*********** GET THE CATEGORY **********/
     visua_tags(foodStorage, N, true);
-    int choice =  ask(
+    int tag_choice =  ask(
         "inserire la categoria: ", 
         N+1, 
         " ! Per favore inserire un numero degli elementi sopra elencati"
     );
 
-    if (choice == N){
+    if (tag_choice == N){
         visua_tab(foodStorage, N);
 
-        choice =  ask_char(
+        tag_choice =  ask_char(
             "inserire la categoria: ", 
             N, 
             " ! Per favore inserire la lettera che indica la categoria da inserire"
         );
     }
     else
-        visua_foods(foodStorage[choice].food, foodStorage[choice].n);
+        visua_foods(foodStorage[tag_choice].food, foodStorage[tag_choice].n);
     
     /*********** GET THE FOOD **********/
     int food_choice = ask(
         "inserire il cibo: ", 
-        foodStorage[choice].n, 
+        foodStorage[tag_choice].n, 
         " ! Per favore inserire un nomero di un cibo della categoria richiesta"
     );
 
+    tag = tag_choice;
+    food = food_choice;
     return;
 }
