@@ -75,28 +75,6 @@ string add_vector_elements(string msg, char vector[], int n){
 }
 */
 
-/*
-char ask(string msg, char answers[], int n, string error){
-    char a;
-    bool running = true; 
-
-    do{
-        cout<<msg; cin>>a;
-
-        for (int i=0; i<n; i++)
-            if (answers[i] == a)
-                running = false;
-
-        if (running == true)
-            cout<<error;
-
-    }while (running);
-    
-
-    return a;
-}
-*/
-
 int ask(string msg, int n, string error){
     int index = -1;
 
