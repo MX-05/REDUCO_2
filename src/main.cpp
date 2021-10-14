@@ -20,8 +20,11 @@ int ask_char(string msg, int n, string error);
 void insert(int &tag, int &food, kitchen foodStorage[]);
 
 int main(){
-    kitchen food_storage[max];
+    kitchen food_storage[max]; init_kitchen(food_storage, max);
     ShoppingCart list[max];
+
+    /******* GET DATA FROM .CSV FILE *******/
+    int N = get_data(food_storage, "../data.csv");
     int food, tag; 
 
     cout<<title;
@@ -45,7 +48,7 @@ int main(){
         switch (A[0])
         {
         case 'i':
-            selectFood(tag, food, food_storage);
+            selectFood(tag, food, food_storage, N);
             break;
 
         case 'q':
@@ -61,10 +64,6 @@ int main(){
         }
     
     }  while (true);
-
-
-    /*
-    */
 }
 
 /*
@@ -137,26 +136,22 @@ int ask_char(string msg, int n, string error){
     return index;
 }
 
-void selectFood(int &tag, int &food, kitchen foodStorage[]){
-
-    /******* GET DATA FROM .CSV FILE *******/
-    init_kitchen(foodStorage, max);
-    int N = get_data(foodStorage, "../data.csv");
+void selectFood(int &tag, int &food, kitchen foodStorage[], int n){
 
     /*********** GET THE CATEGORY **********/
-    visua_tags(foodStorage, N, true);
+    visua_tags(foodStorage, n, true);
     int tag_choice =  ask(
         "inserire la categoria: ", 
-        N+1, 
+        n+1, 
         " ! Per favore inserire un numero degli elementi sopra elencati"
     );
 
-    if (tag_choice == N){
-        visua_tab(foodStorage, N);
+    if (tag_choice == n){
+        visua_tab(foodStorage, n);
 
         tag_choice =  ask_char(
             "inserire la categoria: ", 
-            N, 
+            n, 
             " ! Per favore inserire la lettera che indica la categoria da inserire"
         );
     }
