@@ -4,13 +4,22 @@
 #include "const.h"
 #include "files.cpp"
 
+struct carrello
+{
+    float co2;
+    int punt;
+};
+
 
 // FIXME: se scrivo una lettera/parola il programma entra in un loop
-int ask_int(string msg, int n, string error);
+int ask(string msg, int n, string error);
+
+int ask_char(string msg, int n, string error);
+
+void insert(/*carrello list[], int n,*/ kitchen foodStorage[]);
 
 int main(){
-//     kitchen food_storage[max];    init_kitchen(food_storage, max);
-//     int N = get_data(food_storage, "../data.csv");
+    kitchen food_storage[max];
 
     cout<<title;
 
@@ -29,18 +38,20 @@ int main(){
             A = tolower(A[0]);
         else   
             A = "x";
-
+            
         switch (A[0])
         {
         case 'i':
+            insert(food_storage);
 
-            cout<<" codice per l'inserimento\n";
             break;
 
         case 'q':
 
             system("pause");
             return 0;
+        
+        /************/
         
         default:
             cout<<" \t BIP! BUP! Non ho capito [:'-(]\n \t scrivi 'h' per aiuto [:-)]\n";
@@ -51,16 +62,6 @@ int main(){
 
 
     /*
-    visua_tags(food_storage, N);
-
-    int choice = -1;
-    choice = ask("inserire la categoria: ", N+1, "Per favore inserire un numero degli elementi sopra elencati");
-
-    if (choice == N)
-        visua_tab(food_storage, N);
-    else{
-        visua_foods(food_storage[choice].food, food_storage[choice].n);
-    }
     */
 }
 
@@ -101,7 +102,7 @@ char ask(string msg, char answers[], int n, string error){
 }
 */
 
-int ask_int(string msg, int n, string error){
+int ask(string msg, int n, string error){
     int index = -1;
 
     do{
@@ -113,4 +114,59 @@ int ask_int(string msg, int n, string error){
     }while (index >=n or index <0);    
 
     return index;
+}
+
+int ask_char(string msg, int n, string error){
+    int index = -1;
+    char A;
+
+    do{
+        cout<<msg; cin>>A;
+
+        for (int i=0; i<n; i++){
+            if (alphabet[i] == A)
+                index = i;
+        }
+
+        if (index>=n or index <0)
+            cout<<error<<endl;
+    }while (index >=n or index <0);    
+
+    return index;
+}
+
+void insert(/*carrello list[], int n,*/ kitchen foodStorage[]){
+
+    /******* GET DATA FROM CSV FILE ********/
+    init_kitchen(foodStorage, max);
+    int N = get_data(foodStorage, "../data.csv");
+
+    /*********** GET THE CATEGORY **********/
+    visua_tags(foodStorage, N, true);
+    int choice =  ask(
+        "inserire la categoria: ", 
+        N+1, 
+        " ! Per favore inserire un numero degli elementi sopra elencati"
+    );
+
+    if (choice == N){
+        visua_tab(foodStorage, N);
+
+        choice =  ask_char(
+            "inserire la categoria: ", 
+            N, 
+            " ! Per favore inserire la lettera che indica la categoria da inserire"
+        );
+    }
+    else
+        visua_foods(foodStorage[choice].food, foodStorage[choice].n);
+    
+    /*********** GET THE FOOD **********/
+    int food_choice = ask(
+        "inserire il cibo: ", 
+        foodStorage[choice].n, 
+        " ! Per favore inserire un nomero di un cibo della categoria richiesta"
+    );
+
+    return;
 }
