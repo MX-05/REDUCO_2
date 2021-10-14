@@ -1,3 +1,5 @@
+// AUTHOR: MARCO MAZZEO IV ASA 
+
 #include <typeinfo>
 #include <cctype>
 
