@@ -12,6 +12,13 @@ struct kitchen
     float co_2[max];
     int n;
 };
+struct ShoppingCart
+{
+    string date;
+    float co2;
+    int punt;
+};
+
 char alphabet[] = {
     'a', 'b', 'c', 'd', 'e', 
     'f', 'g', 'h', 'i', 'j', 
@@ -43,6 +50,19 @@ void init_kitchen(kitchen Fstorage[], int n){
     for (int i=0; i<n; i++){
         Fstorage[i].tag = "";
     }
+    return;
+}
+
+void init_list (ShoppingCart list[], int &pt, int &pl, int n){
+    
+    pt = -1; pl = 0;
+    for (int i=0; i<n; i++){
+        list[i].date = "";
+        list[i].co2 = 0.0;
+        list[i].punt = i+1;
+    }
+    list[n-1].punt = -1;
+    
     return;
 }
 
