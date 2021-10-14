@@ -57,7 +57,7 @@ void init_list (ShoppingCart list[], int &pt, int &pl, int n){
     
     pt = -1; pl = 0;
     for (int i=0; i<n; i++){
-        list[i].date = "";
+        list[i].date = ""; // TODO: write current date
         list[i].co2 = 0.0;
         list[i].punt = i+1;
     }
