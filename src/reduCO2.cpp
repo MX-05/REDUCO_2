@@ -69,10 +69,10 @@ void init(kitchen Fstorage[], int n){
 }
 
 // carica i dati del file excel nella tabella
-int get_data(kitchen Fstorage[]){
+int get_data(kitchen Fstorage[], string path){
     
     int n=0; // inizializzo la lunghezza del vettore
-    ifstream data("data.csv"); // apro il file contenente i dati per il calcolo
+    ifstream data(path); // apro il file contenente i dati per il calcolo
     
     // verifico che si legga il file
     if (!data){
@@ -204,6 +204,7 @@ void visua_foods(string v[], int n){
     return;
 }
 
+// FIXME: se scrivo una lettera/parola il programma entra in un loop
 int chiedi(string msg, int n, string error){
     int index = -1;
 
@@ -224,7 +225,7 @@ int main(){
 
     cout<<title;
 
-    int N = get_data(food_storage);
+    int N = get_data(food_storage, "../data.csv");
     visua_tags(food_storage, N);
 
     int choice = -1;
