@@ -15,7 +15,9 @@ void insert(ShoppingCart list[], int &pt, int &pl);
 
 int main(){
     kitchen food_storage[max]; init_kitchen(food_storage, max);
-    ShoppingCart list[max];
+
+    ShoppingCart list[max]; int pt, pl;
+    init_list(list, pt, pl, max);
 
     /******* GET DATA FROM .CSV FILE *******/
     int N = get_data(food_storage, "../data.csv");
