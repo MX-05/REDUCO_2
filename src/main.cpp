@@ -20,13 +20,17 @@ int main(){
     "\t- Scrivi H per ricevere aiuto \n\n";
     cout<<help;
 
-    char A; 
+    string A; 
 
     do{
         cout<<" $ "; cin>>A;
-        A = tolower(A);
 
-        switch (A)
+        if (A.length() ==1)
+            A = tolower(A[0]);
+        else   
+            A = "x";
+
+        switch (A[0])
         {
         case 'i':
 
