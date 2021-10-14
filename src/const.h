@@ -99,13 +99,14 @@ void new_visua_tab(kitchen tab[], int n){
     return;
 }
 
-void visua_tags(kitchen v[], int n){
-    cout<<"CATEGORIE: \n"<<string(40, '-')<<endl;
+void visua_tags(kitchen v[], int n, bool all){
+    cout<<string(46, '-')<<"\nCATEGORIE: \n"<<string(46, '-')<<endl;
 
     for (int i=0; i<n; i++){
         cout<<' '<<i+1<<") "<<v[i].tag<<endl;
     }
-    cout<<' '<<n+1<<") All\n"<<endl;
+    if (all)
+        cout<<' '<<n+1<<") All\n"<<endl;
 
     return;
 }
