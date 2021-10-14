@@ -4,20 +4,14 @@
 #include "const.h"
 #include "files.cpp"
 
-struct ShoppingCart
-{
-    string date;
-    float co2;
-    int punt;
-};
-
-
 // FIXME: se scrivo una lettera/parola il programma entra in un loop
 int ask(string msg, int n, string error);
 
 int ask_char(string msg, int n, string error);
 
-void insert(int &tag, int &food, kitchen foodStorage[]);
+void selectFood(int &tag, int &food, kitchen foodStorage[], int n);
+
+void insert(ShoppingCart list[], int &pt, int &pl);
 
 int main(){
     kitchen food_storage[max]; init_kitchen(food_storage, max);
@@ -169,3 +163,6 @@ void selectFood(int &tag, int &food, kitchen foodStorage[], int n){
     food = food_choice;
     return;
 }
+
+// TODO: fare l'inserimento in testa di una lista
+void insert(ShoppingCart list[], int &pt, int &pl){}
