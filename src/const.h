@@ -86,6 +86,7 @@ void visua_tab(kitchen table[], int n){
 }
 
 // FIXME: run and fix the bug
+/*
 void new_visua_tab(kitchen tab[], int n){
     
     int n_max =0;
@@ -118,6 +119,7 @@ void new_visua_tab(kitchen tab[], int n){
     
     return;
 }
+*/
 
 void visua_tags(kitchen v[], int n, bool all){
     cout<<string(46, '-')<<"\nCATEGORIE: \n"<<string(46, '-')<<endl;
