@@ -14,6 +14,7 @@ struct kitchen
 struct ShoppingCart
 {
     string date;
+    string inf;
     float co2;
     int punt;
 };
@@ -111,6 +112,7 @@ void init_list (ShoppingCart list[], int &pt, int &pl, int n){
     pt = -1; pl = 0;
     for (int i=0; i<n; i++){
         list[i].date = ""; // TODO: write current date
+        list[i].inf = "";
         list[i].co2 = 0.0;
         list[i].punt = i+1;
     }
@@ -119,3 +121,25 @@ void init_list (ShoppingCart list[], int &pt, int &pl, int n){
     return;
 }
 
+int sgancia(ShoppingCart list[], int &pl, float co2, string inf){
+    int old_pl = pl;
+
+    if (pl != -1){
+        list[pl].co2 = co2;
+        list[pl].inf = inf;
+        pl = list[pl].punt;
+    }
+    else
+        cout<<" ! oh oh non c'è più spazio nella lista [=Г ] \n";
+    
+    return old_pl;
+}
+
+void intesta (ShoppingCart list[], int &pt, int &pl, float co2, string inf){
+    int old_pt = pt;
+
+    pt = sgancia(list, pl, co2, inf);
+    list[pt].punt = old_pt;
+    
+    return;
+}
