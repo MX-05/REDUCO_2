@@ -1,19 +1,19 @@
 // AUTHOR: MARCO MAZZEO IV ASA 
 
-#include <typeinfo>
-#include <cctype>
+#include <typeinfo> // <-- for debugging
+#include <cctype>   // <-- for tolower() function
 
 #include "const.h"
 #include "files.cpp"
 
 // FIXME: se scrivo una lettera/parola il programma entra in un loop
-int ask(string msg, int n, string error);
+int ask(string msg, int n, string error);       // ---|
+//                                                    | --> to get the element from some list
+int ask_char(string msg, int n, string error);  // ---|
 
-int ask_char(string msg, int n, string error);
+void selectFood(int &tag, int &food, kitchen foodStorage[], int n); // to get the food
 
-void selectFood(int &tag, int &food, kitchen foodStorage[], int n);
-
-void insert(ShoppingCart list[], int &pt, int &pl);
+void insert(ShoppingCart list[], int &pt, int &pl, string food, float co2); // to insert the co2 into the list
 
 int main(){
     kitchen food_storage[max]; init_kitchen(food_storage, max);
@@ -36,7 +36,7 @@ int main(){
     string A; 
 
     do{
-        cout<<" $ "; cin>>A;
+        cout<<"\n $ "; cin>>A;
 
         if (A.length() ==1)
             A = tolower(A[0]);
@@ -47,6 +47,13 @@ int main(){
         {
         case 'i':
             selectFood(tag, food, food_storage, N);
+            insert(list, pt, pl, food_storage[tag].food[food], food_storage[tag].co_2[food]);
+
+            cout<<string(40, '-')<<endl<<" ecco quanto hai emesso: "<<emissionsCalc(list, pt)<<endl;
+            break;
+        
+        case 'h':
+            cout<<help;
             break;
 
         case 'q':
@@ -147,4 +154,11 @@ void selectFood(int &tag, int &food, kitchen foodStorage[], int n){
 }
 
 // TODO: fare l'inserimento in testa di una lista
-void insert(ShoppingCart list[], int &pt, int &pl){}
+void insert(ShoppingCart list[], int &pt, int &pl, string food, float co2){
+    
+    intesta(list, pt, pl, co2, food);
+
+    watch(list, pt);
+
+    return;
+}
