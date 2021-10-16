@@ -30,6 +30,6 @@
 *.exe
 *.out
 *.app
-*.sh
+
 src/main
 .vscode/settings.json
