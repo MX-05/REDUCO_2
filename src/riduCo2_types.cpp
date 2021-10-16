@@ -143,3 +143,36 @@ void intesta (ShoppingCart list[], int &pt, int &pl, float co2, string inf){
     
     return;
 }
+
+void watch(ShoppingCart list[], int pt){
+    if (pt == -1){
+        cout<<" ! Non ci sono elementi da visualizzare [:-(]\n";
+        return;
+    }
+
+    int i = pt;
+    cout<<endl<<"Ecco gli elementi inseriti: \n";
+
+    while(i != -1){
+        cout<<' '<<i+1<<") "<<list[i].inf<<endl;
+        i = list[i].punt;
+    }
+
+    return;
+}
+
+float emissionsCalc (ShoppingCart list[], int pt){
+    float cont = 0.0;
+
+    if (pt == -1)
+        cout<<" ! Non ci sono elementi da calcolare [:-(]\n";
+
+    int i= pt;
+    while (i != -1){
+        cont = cont + list[i].co2;
+
+        i = list[i].punt;
+    }
+
+    return cont;
+}
