@@ -1,4 +1,4 @@
 clear
 
-g++ main.cpp -o ../exe/reduco.sh
-../exe/reduco.sh
+g++ main.cpp -o ../exe/riduco.sh
+../exe/riduco.sh

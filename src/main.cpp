@@ -25,6 +25,7 @@ int main(){
     int N = get_data(food_storage, "../data.csv");
     int food, tag; 
 
+    cout<<string(15, '-')<<" QUESTO PROGRAMMA E' PROTETTO DALLA LICENZA \"CREATIVE COMMONS\" "<<string(15, '-')<<endl<<endl;
     cout<<title;
 
     char help[] = " Seleziona una delle seguenti modalità: \n"
